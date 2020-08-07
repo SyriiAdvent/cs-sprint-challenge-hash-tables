@@ -1,10 +1,19 @@
 def has_negatives(a):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
-
-    return result
+    results = []
+    cache = {}
+    for num in a:
+        if num < 0:
+            neg_num = num * -1
+            if neg_num in cache:
+                results.append(neg_num)
+            else:
+                cache[neg_num] = 1
+        else:
+            if num in cache:
+                results.append(num)
+            else:
+                cache[num] = 1
+    return results
 
 
 if __name__ == "__main__":
