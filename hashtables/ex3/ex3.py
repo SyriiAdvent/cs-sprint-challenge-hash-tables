@@ -1,10 +1,22 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
-
-    return result
+    numbers = {'cross': []}
+    k = len(arrays)
+    n = 0
+    for i in range(k):
+        if len(arrays[i]) > n:
+            n = len(arrays[i])
+    for i in range(n):
+        for j in range(k):
+            if i > len(arrays[j]) - 1:
+                continue
+            num = arrays[j][i]
+            if num in numbers:
+                numbers[num] += 1
+                if numbers[num] == k:
+                    numbers['cross'].append(num)
+            else:
+                numbers[num] = 1
+    return numbers['cross']
 
 
 if __name__ == "__main__":
